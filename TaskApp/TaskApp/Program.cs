@@ -1,3 +1,8 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using TaskApp.Data;
+using TaskApp.Models;
+
 namespace TaskApp
 {
     public class Program
@@ -8,6 +13,20 @@ namespace TaskApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Database config
+            string connString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddDbContext<TaskDbContext>(opions => opions.UseSqlServer(connString));
+
+            // Identity config
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<TaskDbContext>();
+
+            builder.Services.AddAuthentication();
+
+            builder.Services.AddAuthorization();
 
             var app = builder.Build();
 
@@ -24,6 +43,7 @@ namespace TaskApp
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
