@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaskApp.Data;
 using TaskApp.Models;
+using TaskApp.Models.Interfaces;
+using TaskApp.Models.Services;
 
 namespace TaskApp
 {
@@ -23,6 +25,10 @@ namespace TaskApp
             {
                 options.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<TaskDbContext>();
+
+            builder.Services.AddTransient<IUser, UserService>();
+            builder.Services.AddTransient<IMyTask, MyTaskService>();
+
 
             builder.Services.AddAuthentication();
 

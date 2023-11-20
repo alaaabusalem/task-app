@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TaskApp.Migrations
 {
-    public partial class databaseDone : Migration
+    public partial class dbDone : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,6 +28,7 @@ namespace TaskApp.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -49,7 +50,7 @@ namespace TaskApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MyTaskStatus",
+                name: "myTaskStatuses",
                 columns: table => new
                 {
                     MyTaskStatusId = table.Column<int>(type: "int", nullable: false)
@@ -58,7 +59,7 @@ namespace TaskApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MyTaskStatus", x => x.MyTaskStatusId);
+                    table.PrimaryKey("PK_myTaskStatuses", x => x.MyTaskStatusId);
                 });
 
             migrationBuilder.CreateTable(
@@ -168,43 +169,48 @@ namespace TaskApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MyTask",
+                name: "MyTasks",
                 columns: table => new
                 {
                     MyTaskId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TaskName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TaskDescription = table.Column<int>(type: "int", nullable: false),
+                    TaskDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MyTaskStatusId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MyTask", x => x.MyTaskId);
+                    table.PrimaryKey("PK_MyTasks", x => x.MyTaskId);
                     table.ForeignKey(
-                        name: "FK_MyTask_AspNetUsers_UserId",
+                        name: "FK_MyTasks_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_MyTask_MyTaskStatus_MyTaskStatusId",
+                        name: "FK_MyTasks_myTaskStatuses_MyTaskStatusId",
                         column: x => x.MyTaskStatusId,
-                        principalTable: "MyTaskStatus",
+                        principalTable: "myTaskStatuses",
                         principalColumn: "MyTaskStatusId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
-                table: "MyTaskStatus",
+                table: "myTaskStatuses",
                 columns: new[] { "MyTaskStatusId", "Name" },
                 values: new object[] { 1, "ToDo" });
 
             migrationBuilder.InsertData(
-                table: "MyTaskStatus",
+                table: "myTaskStatuses",
                 columns: new[] { "MyTaskStatusId", "Name" },
                 values: new object[] { 2, "Done" });
+
+            migrationBuilder.InsertData(
+                table: "myTaskStatuses",
+                columns: new[] { "MyTaskStatusId", "Name" },
+                values: new object[] { 3, "Ongoning" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -246,13 +252,13 @@ namespace TaskApp.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MyTask_MyTaskStatusId",
-                table: "MyTask",
+                name: "IX_MyTasks_MyTaskStatusId",
+                table: "MyTasks",
                 column: "MyTaskStatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MyTask_UserId",
-                table: "MyTask",
+                name: "IX_MyTasks_UserId",
+                table: "MyTasks",
                 column: "UserId");
         }
 
@@ -274,7 +280,7 @@ namespace TaskApp.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "MyTask");
+                name: "MyTasks");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -283,7 +289,7 @@ namespace TaskApp.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "MyTaskStatus");
+                name: "myTaskStatuses");
         }
     }
 }

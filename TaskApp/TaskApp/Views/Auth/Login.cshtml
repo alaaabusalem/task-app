@@ -1,0 +1,27 @@
+﻿@model LoginDto;
+<div>
+    <form method="Post" asp-controller="Auth" asp-action="Login">
+
+
+        <div>
+            <label class="category-label">Email</label>
+            <input type="text" asp-for="@Model.Email">
+            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+        </div>
+        
+        <div class="col-md-12 form-group">
+            <label class="category-label">Password</label>
+            <input type="password" asp-for="@Model.Password">
+            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+        </div>
+        
+
+        <input type="submit" value="Login" class="btn btn-primary" />
+
+    </form>
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+		}
