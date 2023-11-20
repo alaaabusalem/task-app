@@ -1,0 +1,40 @@
+﻿@model RegisterUserDto;
+<div>
+	<form method="Post" asp-controller="Auth" asp-action="SignUp">
+
+
+        <div>
+            <label class="category-label">Name</label>
+            <input type="text" asp-for="@Model.Name">
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+        <div class="col-md-12 form-group">
+            <label class="category-label">Email</label>
+            <input type="email" asp-for="@Model.Email">
+            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+        </div>
+        <div>
+            <label class="category-label">Phone Number</label>
+            <input type="text" asp-for="@Model.Phone">
+            <span asp-validation-for="@Model.Phone" class="text-danger"></span>
+        </div>
+        <div class="col-md-12 form-group">
+            <label class="category-label">Password</label>
+            <input type="password" asp-for="@Model.Password">
+            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+        </div>
+        <div class="col-md-12 form-group">
+            <label class="category-label">Confirm Password</label>
+            <input type="password" asp-for="@Model.ConfirmPassword">
+            <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <input type="submit" value="create" class="btn btn-primary" />
+
+</form>
+</div>
+@section Scripts{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+		}
