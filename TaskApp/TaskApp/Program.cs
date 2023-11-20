@@ -27,6 +27,7 @@ namespace TaskApp
             }).AddEntityFrameworkStores<TaskDbContext>();
 
             builder.Services.AddTransient<IUser, UserService>();
+            builder.Services.AddTransient<IMyTask, MyTaskService>();
 
 
             builder.Services.AddAuthentication();

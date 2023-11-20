@@ -1,0 +1,42 @@
+﻿@model UpdateMyTask;
+@{
+
+
+
+}
+<div>
+    <form method="Post" asp-controller="MyTask" asp-action="UpdateTask" asp-route-id="@Model.MyTaskId">
+
+        <input hidden type="text" asp-for="MyTaskId" value="@Model.MyTaskId">
+
+        <div>
+            <label class="category-label">Task Name</label>
+            <input type="text" asp-for="TaskName">
+            <span asp-validation-for="TaskName" class="text-danger"></span>
+        </div>
+        <div class="col-md-12 form-group">
+            <label class="category-label">Description</label>
+            <input type="text" asp-for="TaskDescription">
+            <span asp-validation-for="TaskDescription" class="text-danger"></span>
+        </div>
+        <div class="col-md-12 form-group">
+            <lable class="category-label">Category</lable>
+            <select asp-for="MyTaskStatusId">
+                @{
+                    foreach (var item in Model.Tasks)
+                    {
+                        <option value="@item.MyTaskStatusId">@item.Name</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <input type="submit" value="Update" class="btn btn-primary" />
+
+    </form>
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+		}

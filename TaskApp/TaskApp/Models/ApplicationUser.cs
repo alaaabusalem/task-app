@@ -5,6 +5,7 @@ namespace TaskApp.Models
 {
     public class ApplicationUser: IdentityUser
     {
+        public string name { get; set; }
 
         //np
         public List<MyTask>? Tasks { get; set; }
@@ -13,7 +14,8 @@ namespace TaskApp.Models
         {
             return new ApplicationUser
             {
-                UserName = user.Name,
+                name= user.Name,    
+                UserName = user.Email,
                 Email = user.Email,
                 PhoneNumber = user.Phone,
 

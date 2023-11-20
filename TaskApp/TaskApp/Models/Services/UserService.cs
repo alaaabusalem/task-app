@@ -43,11 +43,11 @@ namespace TaskApp.Models.Services
 
         public async Task<UserDto> Login(LoginDto loginDto)
         {
-            var result = await _signManager.PasswordSignInAsync(loginDto.Name, loginDto.Password, true, false);
+            var result = await _signManager.PasswordSignInAsync(loginDto.Email, loginDto.Password, true, false);
             if (result.Succeeded)
             {
 
-                var user = await _userManager.FindByNameAsync(loginDto.Name);
+                var user = await _userManager.FindByNameAsync(loginDto.Email);
                
                   return new UserDto()
                   {

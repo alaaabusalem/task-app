@@ -1,0 +1,10 @@
+﻿@model List<MyTaskDto>
+
+
+   <div>
+    @foreach(var item in Model)
+    {
+        <div><span>@item.TaskName</span>  <span>@item.Date</span>  <span>@item.Status.Name</span></div>
+    }
+
+   </div>

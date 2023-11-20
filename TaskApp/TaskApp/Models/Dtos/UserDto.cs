@@ -15,7 +15,7 @@ namespace TaskApp.Models.Dtos
     {
         [Required]
 
-        public string Name { get; set; }
+        public string Email { get; set; }
 
         [Required]
 

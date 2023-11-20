@@ -22,12 +22,17 @@ namespace TaskApp.Data
            .HasForeignKey(task => task.UserId);
 
             modelBuilder.Entity<MyTaskStatus>().HasData(
-             new MyTaskStatus {MyTaskStatusId=1, Name ="ToDo" },
-             new MyTaskStatus { MyTaskStatusId = 2, Name = "Done" }
+             new MyTaskStatus { MyTaskStatusId = 1, Name = "ToDo" },
+             new MyTaskStatus { MyTaskStatusId = 2, Name = "Done" },
+             new MyTaskStatus { MyTaskStatusId = 3, Name = "Ongoning" }
 
 
 
-                );
+                ) ;
         }
+
+        public DbSet<MyTask> MyTasks { get; set; }
+        public DbSet<MyTaskStatus> myTaskStatuses { get; set; }
+
     }
 }

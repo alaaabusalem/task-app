@@ -12,8 +12,8 @@ using TaskApp.Data;
 namespace TaskApp.Migrations
 {
     [DbContext(typeof(TaskDbContext))]
-    [Migration("20231120112910_databaseDone")]
-    partial class databaseDone
+    [Migration("20231120172953_dbDone")]
+    partial class dbDone
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -209,6 +209,10 @@ namespace TaskApp.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -236,8 +240,9 @@ namespace TaskApp.Migrations
                     b.Property<int>("MyTaskStatusId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TaskDescription")
-                        .HasColumnType("int");
+                    b.Property<string>("TaskDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TaskName")
                         .IsRequired()
@@ -253,7 +258,7 @@ namespace TaskApp.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("MyTask");
+                    b.ToTable("MyTasks");
                 });
 
             modelBuilder.Entity("TaskApp.Models.MyTaskStatus", b =>
@@ -270,7 +275,7 @@ namespace TaskApp.Migrations
 
                     b.HasKey("MyTaskStatusId");
 
-                    b.ToTable("MyTaskStatus");
+                    b.ToTable("myTaskStatuses");
 
                     b.HasData(
                         new
@@ -282,6 +287,11 @@ namespace TaskApp.Migrations
                         {
                             MyTaskStatusId = 2,
                             Name = "Done"
+                        },
+                        new
+                        {
+                            MyTaskStatusId = 3,
+                            Name = "Ongoning"
                         });
                 });
 
