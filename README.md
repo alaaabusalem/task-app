@@ -4,7 +4,7 @@
 - [Introduction](#introduction)
 - [Deployment](#deployment)
 - [Database Schema](#database-schema)
-- [Explanation of Database Schema](#explanation-of-database-schema)
+
 
 
 ## Introduction
@@ -12,7 +12,7 @@
 + Welcome to MyTasks Web Application README.
 ## Deployment
 
-- **Website Link**: [MyTasks Web Application]()
+- **Website Link**: [MyTasks Web Application](https://taskapp20231121201841.azurewebsites.net/)
 
 ---
 
@@ -42,19 +42,27 @@ Our database schema primarily consists of the following tables:
 
 ![home page](./Assest/homepng.png)
 
-+ Register Page 
++ Register Page
+  
 ![Register page](./Assest/siginuppng.png)
 
 
-+ Login Page 
++ Login Page
+  
 ![Login page](./Assest/loginpng.png)
 
-+ MyTasks Page 
++ MyTasks Page
+  
 ![MyTask page](./Assest/mytask.png)
-+ Add task Page 
+
++ Add task Page
+  
 ![add task page](./Assest/addtaskpng.png)
 
-+ Update Page 
++ Update Page
+   
 ![update task page](./Assest/updatetaskpng.png)
-+ delete Page 
+
++ delete Page
+  
 ![delete task page](./Assest/deletetaskpng.png)
