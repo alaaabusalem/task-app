@@ -21,18 +21,19 @@ namespace TaskApp.Controllers
        
         public async Task<IActionResult> Index()
         {
-
+          var  allTasks = new AllTasks();
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
+            if(userId!=null) { 
             var Todo = await _Db.GetToDoTask(userId);
             var Doing = await _Db.GetOngoningTask(userId);
             var done = await _Db.GetDoneTask(userId);
-            var allTasks = new AllTasks()
-            {
-                ToDo = Todo,
-                Doing = Doing,
-                Done = done
-            };
+
+
+                allTasks.ToDo = Todo;
+                allTasks.Doing = Doing;
+                allTasks.Done = done;
+           
+            }
             return View(allTasks);
         }
 

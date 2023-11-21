@@ -15,7 +15,7 @@ namespace TaskApp.Controllers
         {
             _Db = db;
         }
-        // GET: MyTaskController
+        
         public async Task<ActionResult> Index()
         {
             return View();
@@ -67,9 +67,6 @@ namespace TaskApp.Controllers
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var tasks = await _Db.create(createMyTask,userId);
-            if (tasks != null) TempData["success"] = "added done Successfully";
-            TempData["falied"] = "somthing went wrong";
-
             return RedirectToAction("Index", "Home");
 
 

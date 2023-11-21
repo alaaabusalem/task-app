@@ -12,8 +12,8 @@ using TaskApp.Data;
 namespace TaskApp.Migrations
 {
     [DbContext(typeof(TaskDbContext))]
-    [Migration("20231120172953_dbDone")]
-    partial class dbDone
+    [Migration("20231121132014_finialUpdate")]
+    partial class finialUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
