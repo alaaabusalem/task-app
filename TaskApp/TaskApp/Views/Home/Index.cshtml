@@ -52,7 +52,7 @@
             </div>
 
             <div class="lists-div rounded-3  col-md-3 me-1 col-ms-10 d-flex flex-column  mb-2" style="height: 600px; overflow-y: auto;">
-                <h6 class="p-2"> Doing</h6>
+                <h6 class="p-2"> Ongoing</h6>
                 <div class="d-flex flex-column justify-content-around align-content-center text-center pb-2 mx-auto">
 
                     @if (Model.Doing != null)
@@ -135,7 +135,7 @@
 {
     <div class="container m-auto d-flex flex-column justify-content-center align-items-center mt-lg-5 pt-lg-5">
 
-        <h1 class="text-light" style="color:wheat"> welcome to My Tasks Login to see Your Taskes</h1>
+        <h1 class="text-light" style="color:wheat"> welcome to <span style="color:#1A76D1; font-style: italic;">MyTasks</span> Login to see Your Taskes</h1>
         <p class="small fw-bold mt-2 pt-1 mb-0 text-light" style="font-size: 16px">
             Don't have an account?
             <a asp-controller="Auth" asp-action="SignUp" style="color:#1A76D1">Sign Up</a>
