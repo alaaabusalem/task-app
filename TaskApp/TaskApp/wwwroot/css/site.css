@@ -18,7 +18,7 @@ body {
 }
 
 .lists-div {
-    width: 250px;
+   
     background-color: #eee;
 }
 .card {
@@ -55,3 +55,23 @@ body {
     ::-webkit-scrollbar-thumb:hover {
         background: #414647;
     }
+.card {
+    width: 245px!important;
+}
+@media (max-width: 912px) {
+
+    .card {
+        width:200px!important;
+    }
+}
+@media (max-width: 768px) {
+    .card {
+        width: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 100px;
+    }
+}
