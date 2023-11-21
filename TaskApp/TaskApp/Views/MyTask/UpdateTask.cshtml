@@ -4,7 +4,8 @@
 
 
 }
-<div>
+<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 bg-light shadow-sm  p-3 rounded">
+
     <form method="Post" asp-controller="MyTask" asp-action="UpdateTask" asp-route-id="@Model.MyTaskId">
 
         <input hidden type="text" asp-for="MyTaskId" value="@Model.MyTaskId">

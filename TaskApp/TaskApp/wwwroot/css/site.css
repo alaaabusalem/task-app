@@ -16,3 +16,23 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.lists-div {
+    width: 250px;
+    background-color: #eee;
+}
+.card {
+    transition: transform 0.3s ease;
+}
+    .card:hover {
+        transform: scale(1.01);
+    }
+
+.home-div {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-image: url('../images/dark4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

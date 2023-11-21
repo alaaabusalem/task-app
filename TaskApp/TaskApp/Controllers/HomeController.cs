@@ -1,21 +1,39 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
 using TaskApp.Models;
+using TaskApp.Models.Dtos;
+using TaskApp.Models.Interfaces;
 
 namespace TaskApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IMyTask _Db;
+       
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IMyTask db)
         {
-            _logger = logger;
+            _Db = db;
+
         }
-
-        public IActionResult Index()
+       
+        public async Task<IActionResult> Index()
         {
-            return View();
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var Todo = await _Db.GetToDoTask(userId);
+            var Doing = await _Db.GetOngoningTask(userId);
+            var done = await _Db.GetDoneTask(userId);
+            var allTasks = new AllTasks()
+            {
+                ToDo = Todo,
+                Doing = Doing,
+                Done = done
+            };
+            return View(allTasks);
         }
 
         public IActionResult Privacy()

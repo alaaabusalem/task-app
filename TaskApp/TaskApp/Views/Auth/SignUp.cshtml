@@ -1,38 +1,64 @@
 ﻿@model RegisterUserDto;
-<div>
-	<form method="Post" asp-controller="Auth" asp-action="SignUp">
+
+<section class="contact-us section">
+	<div class="container">
+		<section class="vh-100">
+			<div class="container-fluid h-custom">
+				<div class="row d-flex justify-content-center align-items-center h-100">
+					
+					<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 bg-light shadow-sm  p-3 rounded">
+						">
+						<form method="Post" asp-controller="Auth" asp-action="SignUp">
+							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center">SignUp</h3>
+
+							<div class="form-outline mb-4">
+								<label class="form-label">Name</label>
+								<input type="text" asp-for="@Model.Name" class="form-control form-control-lg">
+								<span asp-validation-for="@Model.Name" class="text-danger"></span>
+							</div>
+
+							<div class="form-outline mb-4">
+								<label class="form-label">Email</label>
+								<input type="email" asp-for="@Model.Email" class="form-control form-control-lg">
+								<span asp-validation-for="@Model.Email" class="text-danger"></span>
+							</div>
+
+							<div class="form-outline mb-4">
+								<label class="form-label">Phone Number</label>
+								<input type="text" asp-for="@Model.Phone" class="form-control form-control-lg">
+								<span asp-validation-for="@Model.Phone" class="text-danger"></span>
+							</div>
+							<div class="form-outline mb-4">
+								<label class="form-label">Password</label>
+								<input type="password" asp-for="@Model.Password" class="form-control form-control-lg">
+								<span asp-validation-for="@Model.Password" class="text-danger"></span>
+							</div>
+
+							<div class="form-outline mb-4">
+								<label class="form-label">Confirm Password</label>
+								<input type="password" asp-for="@Model.ConfirmPassword" class="form-control form-control-lg">
+								<span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+							</div>
+
+							<div class="text-center mt-4 pt-2">
+								<button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">
+									SignIn
+								</button>
+								<p class="small fw-bold mt-2 pt-1 mb-0" style="font-size: 16px">
+									Have an account?
+									<a asp-controller="Auth" asp-action="Login" style="color:#1A76D1">LogIn</a>
+								</p>
+							</div>
 
 
-        <div>
-            <label class="category-label">Name</label>
-            <input type="text" asp-for="@Model.Name">
-            <span asp-validation-for="@Model.Name" class="text-danger"></span>
-        </div>
-        <div class="col-md-12 form-group">
-            <label class="category-label">Email</label>
-            <input type="email" asp-for="@Model.Email">
-            <span asp-validation-for="@Model.Email" class="text-danger"></span>
-        </div>
-        <div>
-            <label class="category-label">Phone Number</label>
-            <input type="text" asp-for="@Model.Phone">
-            <span asp-validation-for="@Model.Phone" class="text-danger"></span>
-        </div>
-        <div class="col-md-12 form-group">
-            <label class="category-label">Password</label>
-            <input type="password" asp-for="@Model.Password">
-            <span asp-validation-for="@Model.Password" class="text-danger"></span>
-        </div>
-        <div class="col-md-12 form-group">
-            <label class="category-label">Confirm Password</label>
-            <input type="password" asp-for="@Model.ConfirmPassword">
-            <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
-        </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
 
-        <input type="submit" value="create" class="btn btn-primary" />
-
-</form>
-</div>
+	</div>
+</section>
 @section Scripts{
 	@{
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");

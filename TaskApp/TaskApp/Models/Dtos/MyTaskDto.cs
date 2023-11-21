@@ -81,4 +81,15 @@ namespace TaskApp.Models.Dtos
 
 
     }
+
+    public class AllTasks
+    {
+
+        public List<MyTaskDto> ToDo { get; set; }
+        public List<MyTaskDto> Done { get; set; }
+        public List<MyTaskDto> Doing { get; set; }
+
+
+
+    }
 }

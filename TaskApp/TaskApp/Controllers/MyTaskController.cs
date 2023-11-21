@@ -103,7 +103,7 @@ namespace TaskApp.Controllers
 
 
         [Authorize]
-        [HttpPost]
+        
         public async Task<ActionResult> DeleteTask(int id )
         {
 
