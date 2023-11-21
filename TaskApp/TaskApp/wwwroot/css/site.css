@@ -18,7 +18,7 @@ body {
 }
 
 .lists-div {
-    width: 300px;
+    width: 250px;
     background-color: #eee;
 }
 .card {
@@ -36,3 +36,22 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+::-webkit-scrollbar {
+    width: 10px;
+    margin-right: 1rem
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #414647;
+    }
