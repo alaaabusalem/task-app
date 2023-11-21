@@ -22,33 +22,34 @@ namespace TaskApp.Controllers
 
 
         }
-        [Authorize]
-        public async Task<ActionResult> ToDo()
-        {
-            var userId=  User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var tasks = await _Db.GetToDoTask(userId);
-            return View(tasks);
+        // [Authorize]
+        // public async Task<ActionResult> ToDo()
+        // {
+        //  var userId =  User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //  var tasks = await _Db.GetToDoTask(userId);
+        //   return View(tasks);
 
 
-        }
-        [Authorize]
-        public async Task<ActionResult> OnGoing()
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var tasks = await _Db.GetOngoningTask(userId);
-            return View(tasks);
+        // }
+        //     [Authorize]
+        //    public async Task<ActionResult> OnGoing()
+        //    {
+        // var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //     var tasks = await _Db.GetOngoningTask(userId);
+        // return View(tasks);
 
 
-        }
-        [Authorize]
-        public async Task<ActionResult> Done()
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var tasks = await _Db.GetDoneTask(userId);
-            return View(tasks);
+   // }
+
+    //[Authorize]
+     //   public async Task<ActionResult> Done()
+     //   {
+         //   var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+         //   var tasks = await _Db.GetDoneTask(userId);
+         //   return View(tasks);
 
 
-        }
+       // }
         [Authorize]
         [HttpGet]
         public async Task<ActionResult> CreateTask()
