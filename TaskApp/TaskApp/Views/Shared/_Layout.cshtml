@@ -12,7 +12,7 @@
 </head>
 <body class="home-div">
     <header style="padding-bottom:0px!important; margin-bottom:0px!important">
-        <nav class="navbar navbar-dark bg-dark navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3" style="padding-bottom:0px!important; margin-bottom:0px!important">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3 d-flex" style="padding-bottom:0px!important; margin-bottom:0px!important">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TaskApp</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -27,17 +27,23 @@
                         <li class="nav-item">
                             <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        @if (!User.Identity.IsAuthenticated){ 
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Auth" asp-action="SignUp">Sign Up</a>
-                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="" asp-controller="Auth" asp-action="SignUp">Sign Up</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link " asp-area="" asp-controller="Auth" asp-action="Login">Login</a>
                             </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
-                        </li>
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -45,12 +51,12 @@
     </header>
 
     <div class=" p-5">
-   
-            @RenderBody()
-      
+
+        @RenderBody()
+
     </div>
 
-    
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

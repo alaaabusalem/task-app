@@ -4,80 +4,50 @@
 
 
 }
-@*<div>
-    <form method="Post" asp-controller="MyTask" asp-action="CreateTask">
 
 
-        <div>
-            <label class="category-label">Task Name</label>
-            <input type="text" asp-for="@Model.TaskName">
-            <span asp-validation-for="@Model.TaskName" class="text-danger"></span>
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 bg-light shadow-sm rounded d-flex justify-content-center mx-auto">
+
+                <form method="Post" asp-controller="MyTask" asp-action="CreateTask" style="width: 26rem;" class="p-4">
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label">Task Name</label>
+                        <input type="text" class="form-control" asp-for="@Model.TaskName" required />
+                        <span asp-validation-for="@Model.TaskName" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" id="form4Example3" rows="2" asp-for="@Model.TaskDescription" required></textarea>
+                        <span asp-validation-for="@Model.TaskDescription" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <lable class="category-label">Category</lable>
+                        <select asp-for="MyTaskStatusId" class="form-select form-select-lg ">
+                            @{
+                                foreach (var item in Model.Tasks)
+                                {
+                                    <option value="@item.MyTaskStatusId">@item.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div class="text-center mt-4 pt-2">
+                        <button type="submit" class="btn btn-dark btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                            create
+                        </button>
+
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="col-md-12 form-group">
-            <label class="category-label">Description</label>
-            <input type="text" asp-for="@Model.TaskDescription">
-            <span asp-validation-for="@Model.TaskDescription" class="text-danger"></span>
-        </div>
-        <div class="col-md-12 form-group">
-            <lable class="category-label">Category</lable>
-            <select  asp-for="MyTaskStatusId">
-                @{
-                    foreach (var item in Model.Tasks)
-                    {
-                        <option value="@item.MyTaskStatusId">@item.Name</option>
-                    }
-                }
-            </select>
-        </div>
-
-        <input type="submit" value="create" class="btn btn-primary" />
-
-    </form>
-</div>
-*@
-<section class="contact-us section ">
-    <div class="container">
-        <section class="vh-100">
-            <div class="container-fluid h-custom">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 bg-light shadow-sm  p-3 rounded">
-
-<form method="Post" asp-controller="MyTask" asp-action="CreateTask" style="width: 26rem;">
-
-    <div class="form-outline mb-4">
-        <label class="form-label">Task Name</label>
-        <input type="text" class="form-control" asp-for="@Model.TaskName" required />
-        <span asp-validation-for="@Model.TaskName" class="text-danger"></span>
-
     </div>
-
-    <div class="form-outline mb-4">
-        <label class="form-label">Description</label>
-        <textarea class="form-control" id="form4Example3" rows="4" asp-for="@Model.TaskDescription" required></textarea>
-        <span asp-validation-for="@Model.TaskDescription" class="text-danger"></span>
-
-    </div>
-
-    <div class="form-outline mb-4">
-        <lable class="category-label">Category</lable>
-        <select asp-for="MyTaskStatusId" class="form-select form-select-lg ">
-            @{
-                foreach (var item in Model.Tasks)
-                {
-                    <option value="@item.MyTaskStatusId">@item.Name</option>
-                }
-            }
-        </select>
-    </div>
-    
-    <input type="submit" value="create" class="btn btn-primary" />
-</form>
-</div>
-</div>
-</div>
-</section>
-</div>
-</section>
 @section Scripts{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

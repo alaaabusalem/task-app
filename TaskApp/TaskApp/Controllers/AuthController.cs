@@ -46,6 +46,7 @@ namespace TaskApp.Controllers
             var user = await _context.Login(loginDto);
             if(user != null)
             return RedirectToAction("Index", "Home");
+            ViewBag.Error = "Wrong Email Or Passoword";
             return View(loginDto);  
 
         }

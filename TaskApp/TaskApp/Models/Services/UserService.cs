@@ -32,7 +32,6 @@ namespace TaskApp.Models.Services
                 var errorKey = error.Code.Contains("Password") ? nameof(registerUser.Password) :
                          error.Code.Contains("Email") ? nameof(registerUser.Email) :
                          error.Code.Contains("Username") ? nameof(registerUser.Name) :
-                         error.Code.Contains("PhoneNumber") ? nameof(registerUser.Phone) :
 
                          "";
 
@@ -54,10 +53,11 @@ namespace TaskApp.Models.Services
                       Id=user.Id,
                     UserName=user.UserName,
                     Email=user.Email,   
-                    Phone=user.PhoneNumber,
+                   
     };
 
             }
+           
             return null;
         }
 

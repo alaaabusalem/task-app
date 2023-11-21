@@ -32,20 +32,18 @@ namespace TaskApp.Models.Dtos
 
     public class CreateMyTask
     {
-
+        [Display(Name ="Task Name")]
         [Required]
         public string TaskName { get; set; }
-        [Required]
 
-        public string TaskDescription { get; set; }
+        [Required]
+		[Display(Name ="Description")]
+		public string TaskDescription { get; set; }
        
         [Required]
-
-
         public int MyTaskStatusId { get; set; }
 
         [Required]
-
         public List<MyTaskStatus> Tasks { get; set; }
        
 
@@ -61,6 +59,7 @@ namespace TaskApp.Models.Dtos
 
         [Required]
         public string TaskDescription { get; set; }
+
 
         [Required]
         public int MyTaskStatusId { get; set; }
