@@ -15,7 +15,7 @@ namespace TaskApp.Controllers
         {
             _Db = db;
         }
-        // GET: MyTaskController
+        
         public async Task<ActionResult> Index()
         {
             return View();
@@ -67,10 +67,10 @@ namespace TaskApp.Controllers
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var tasks = await _Db.create(createMyTask,userId);
-            return RedirectToAction("ToDo");
+            return RedirectToAction("Index", "Home");
 
 
-        }
+		}
 
         [Authorize]
         [HttpGet]
@@ -96,23 +96,23 @@ namespace TaskApp.Controllers
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var tasks = await _Db.Update(updateMyTask, userId);
-            return RedirectToAction("ToDo");
+			return RedirectToAction("Index", "Home");
 
 
-        }
+		}
 
 
         [Authorize]
-        [HttpPost]
+        
         public async Task<ActionResult> DeleteTask(int id )
         {
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var tasks = await _Db.delete( id, userId);
-            return RedirectToAction("ToDo");
+			return RedirectToAction("Index", "Home");
 
 
-        }
+		}
 
 
     }

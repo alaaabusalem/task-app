@@ -9,16 +9,14 @@ namespace TaskApp.Models.Dtos
         public string UserName { get; set; }
 
         public string Email { get; set; }
-        public string Phone { get; set; }
+     
     }
     public class LoginDto
     {
         [Required]
-
         public string Email { get; set; }
 
         [Required]
-
         public string Password { get; set; }
         //public bool RememberMe { get; set; }
     }
@@ -39,8 +37,8 @@ namespace TaskApp.Models.Dtos
         [Required]
         [DataType(DataType.Password)]
         [Compare(nameof(Password), ErrorMessage = "Passwords Are Not Identical")]
-        public string ConfirmPassword { get; set; }
-        [Required]
-        public string Phone { get; set; }
+		[Display(Name = "Confirm Password")]
+		public string ConfirmPassword { get; set; }
+        
     }
 }

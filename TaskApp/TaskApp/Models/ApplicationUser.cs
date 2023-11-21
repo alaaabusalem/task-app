@@ -17,7 +17,6 @@ namespace TaskApp.Models
                 name= user.Name,    
                 UserName = user.Email,
                 Email = user.Email,
-                PhoneNumber = user.Phone,
 
             };
         }

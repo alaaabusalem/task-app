@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TaskApp.Migrations
 {
-    public partial class dbDone : Migration
+    public partial class finialUpdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

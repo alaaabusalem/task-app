@@ -16,3 +16,62 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.lists-div {
+   
+    background-color: #eee;
+}
+.card {
+    transition: transform 0.3s ease;
+}
+    .card:hover {
+        transform: scale(1.01);
+    }
+
+.home-div {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-image: url('../images/dark4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    margin-right: 1rem
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #414647;
+    }
+.card {
+    width: 245px!important;
+}
+@media (max-width: 912px) {
+
+    .card {
+        width:200px!important;
+    }
+}
+@media (max-width: 768px) {
+    .card {
+        width: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 100px;
+    }
+}
